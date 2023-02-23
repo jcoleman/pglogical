@@ -33,7 +33,10 @@
  * handles the stock Pg11 change.
  */ 
 #define ExecBRDeleteTriggers(estate, epqstate, relinfo, tupleid, fdw_trigtuple) \
- 	ExecBRDeleteTriggers(estate, epqstate, relinfo, tupleid, fdw_trigtuple, NULL)
+  ExecBRDeleteTriggers(estate, epqstate, relinfo, tupleid, fdw_trigtuple, NULL, NULL)
+
+#define ExecBRUpdateTriggers(estate, epqstate, relinfo, tupleid, fdw_trigtuple, newslot) \
+  ExecBRUpdateTriggers(estate, epqstate, relinfo, tupleid, fdw_trigtuple, newslot, NULL)
 
 #undef ExecEvalExpr
 #define ExecEvalExpr(expr, econtext, isNull, isDone) \
